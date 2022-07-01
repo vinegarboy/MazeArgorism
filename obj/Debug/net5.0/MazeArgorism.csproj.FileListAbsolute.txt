@@ -1,0 +1,16 @@
+D:\Projects\MazeArgorism\obj\Debug\net5.0\MazeArgorism.csproj.AssemblyReference.cache
+D:\Projects\MazeArgorism\obj\Debug\net5.0\MazeArgorism.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\MazeArgorism\obj\Debug\net5.0\MazeArgorism.AssemblyInfoInputs.cache
+D:\Projects\MazeArgorism\obj\Debug\net5.0\MazeArgorism.AssemblyInfo.cs
+D:\Projects\MazeArgorism\obj\Debug\net5.0\MazeArgorism.csproj.CoreCompileInputs.cache
+D:\Projects\MazeArgorism\bin\Debug\net5.0\MazeArgorism.exe
+D:\Projects\MazeArgorism\bin\Debug\net5.0\MazeArgorism.deps.json
+D:\Projects\MazeArgorism\bin\Debug\net5.0\MazeArgorism.runtimeconfig.json
+D:\Projects\MazeArgorism\bin\Debug\net5.0\MazeArgorism.runtimeconfig.dev.json
+D:\Projects\MazeArgorism\bin\Debug\net5.0\MazeArgorism.dll
+D:\Projects\MazeArgorism\bin\Debug\net5.0\ref\MazeArgorism.dll
+D:\Projects\MazeArgorism\bin\Debug\net5.0\MazeArgorism.pdb
+D:\Projects\MazeArgorism\obj\Debug\net5.0\MazeArgorism.dll
+D:\Projects\MazeArgorism\obj\Debug\net5.0\ref\MazeArgorism.dll
+D:\Projects\MazeArgorism\obj\Debug\net5.0\MazeArgorism.pdb
+D:\Projects\MazeArgorism\obj\Debug\net5.0\MazeArgorism.genruntimeconfig.cache
