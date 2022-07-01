@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "jWOPv66m0r6Epzu/WbRoqoYJ23CwLRIzTwwH1iMIhv6LZHEU3jeHdn/QyukIEEu5X0N0u5BuYq318Bz1P0V7Xg==",
+  "dgSpecHash": "ZILV4v2ZpVqrlCDdHfOgxUgYNZJV709vvVJM0AIMvXuTluEtd68J2WFURSOxCDgAIyhttPy2HvVIBPzlqD53DA==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\MazeArgorism\\MazeArgorism.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Vinegarman\\Documents\\Projects\\MazeArgorism\\MazeArgorism.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Vinegarman\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\Vinegarman\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\Vinegarman\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\Vinegarman\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -50,9 +50,9 @@ namespace MazeArgorism
                     maps[_x,_y] = 1;
                 }
             }
-            for(int _x = 2;_x<maze_width;_x+=2){
-                for(int _y = 2;_y< maze_height;_y+=2){
-                    if(_x == 2){
+            for(int _x = 2;_x<maze_width-1;_x+=2){
+                for(int _y = 2;_y< maze_height-1;_y+=2){
+                    if(_x == 1){
                         switch (rd.Next(0,4)){//上下左右
                             case 0:
                                 if(maps[_x,_y+1]==1){
@@ -118,12 +118,12 @@ namespace MazeArgorism
         }
         public void WriteDate(){
             System.IO.StreamWriter sw = new System.IO.StreamWriter(@"./CompMaze.txt",true);
-                for(int _y = 0;_y<maze_height;_y++){
-                    for(int _x = 0;_x < maze_width;_x++){
-                        sw.Write(maps[_x,_y]);
-                    }
-                    sw.Write("\n");
+            for(int _y = 0;_y<maze_height;_y++){
+                for(int _x = 0;_x < maze_width;_x++){
+                    sw.Write(maps[_x,_y]);
                 }
+                sw.Write("\n");
+            }
             sw.Close();
         }
     }
