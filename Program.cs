@@ -25,7 +25,7 @@ namespace MazeArgorism
         public void Initialize(int width,int height){
             maze_width = width;
             maze_height = height;
-            if((width%2 != 1 || height%2 != 1)||(width>4||height>4)){
+            if((width%2 != 1 || height%2 != 1)||(width<5||height<5)){
                 throw new Exception("The size of the maze must be odd and at least 5 blocks.");
             }
             maps = new int[maze_width,maze_height];
