@@ -15,19 +15,49 @@ namespace MazeArgorism
             ew.WriteDate();
             Console.WriteLine("Finish");
         }
-
-
     }
-    class ExtendWall{
+
+    class PollFall{
         int[,] maps;
-        //0=通路 1=壁
+        int maze_width,maze_height;
+        Random rd = new Random();
+
+        public void Initialize(int width,int height){
+            maze_width = width;
+            maze_height = height;
+            if((width%2 != 1 || height%2 != 1)||(width>4||height>4)){
+                throw new Exception("The size of the maze must be odd and at least 5 blocks.");
+            }
+            maps = new int[maze_width,maze_height];
+            for(int _x =0;_x<maze_width;_x++){
+                for(int _y = 0;_y < maze_height;_y++){
+                    maps[_x,_y] = 0;
+                }
+            }
+            for(int i = 0;i<maze_width;i++){
+                maps[i,0] = 1;
+                maps[i,maze_height-1] = 1;
+            }
+            for(int i = 0;i<maze_height;i++){
+                maps[0,i] = 1;
+                maps[maze_width-1,i]= 1;
+            }
+        }
+    }
+
+    class ExtendWall{//ToDo 個室が作られる。壁に到達した際にエラーが発生する。
+        int[,] maps;
         int maze_width,maze_height,sx,sy;
         Random rd = new Random();
         bool finish = false;
         private int t = 0;
+
         public void Initialize(int width,int height){
             maze_width = width;
             maze_height = height;
+            if((width%2 != 1 || height%2 != 1)||(width>4||height>4)){
+                throw new Exception("The size of the maze must be odd and at least 5 blocks.");
+            }
             maps = new int[maze_width,maze_height];
             for(int _x =0;_x<maze_width;_x++){
                 for(int _y = 0;_y < maze_height;_y++){
@@ -118,6 +148,7 @@ namespace MazeArgorism
                 }
             }
         }
+
         public bool CheckWall(int _x,int _y,int forward_t){
             bool ret = true;
             if((maps[_x+1,_y] == 1&&t!=2)||(maps[_x-1,_y] == 1&&t!=3)||(maps[_x,_y+1] == 1&&t!=1)||(maps[_x,_y-1] == 1&&t!=0)){
