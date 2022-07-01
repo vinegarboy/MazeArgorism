@@ -5,7 +5,7 @@ namespace MazeArgorism
     class Program
     {
         static void Main(string[] args){
-            ExtendWall ew = new ExtendWall();
+            PollFall ew = new PollFall();
             Console.WriteLine("Set Map Height.");
             int height = int.Parse(Console.ReadLine());
             Console.WriteLine("Set Map Width.");
@@ -42,6 +42,89 @@ namespace MazeArgorism
                 maps[0,i] = 1;
                 maps[maze_width-1,i]= 1;
             }
+        }
+
+        public void MakeWall(){
+            for(int _x = 2;_x<maze_width;_x+=2){
+                for(int _y = 2;_y< maze_height;_y+=2){
+                    maps[_x,_y] = 1;
+                }
+            }
+            for(int _x = 2;_x<maze_width;_x+=2){
+                for(int _y = 2;_y< maze_height;_y+=2){
+                    if(_x == 2){
+                        switch (rd.Next(0,4)){//上下左右
+                            case 0:
+                                if(maps[_x,_y+1]==1){
+                                    _y-=2;
+                                }else{
+                                    maps[_x,_y+1] = 1;
+                                }
+                                break;
+
+                            case 1:
+                                if(maps[_x,_y-1]==1){
+                                    _y-=2;
+                                }else{
+                                    maps[_x,_y-1] = 1;
+                                }
+                                break;
+
+                            case 2:
+                                if(maps[_x-1,_y]==1){
+                                    _y-=2;
+                                }else{
+                                    maps[_x-1,_y] = 1;
+                                }
+                                break;
+
+                            case 3:
+                                if(maps[_x+1,_y]==1){
+                                    _y-=2;
+                                }else{
+                                    maps[_x+1,_y] = 1;
+                                }
+                                break;
+                        }
+                    }else{
+                        switch (rd.Next(0,3)){//下左右
+                            case 0:
+                                if(maps[_x,_y-1]==1){
+                                    _y-=2;
+                                }else{
+                                    maps[_x,_y-1] = 1;
+                                }
+                                break;
+
+                            case 1:
+                                if(maps[_x-1,_y]==1){
+                                    _y-=2;
+                                }else{
+                                    maps[_x-1,_y] = 1;
+                                }
+                                break;
+
+                            case 2:
+                                if(maps[_x+1,_y]==1){
+                                    _y-=2;
+                                }else{
+                                    maps[_x+1,_y] = 1;
+                                }
+                                break;
+                        }
+                    }
+                }
+            }
+        }
+        public void WriteDate(){
+            System.IO.StreamWriter sw = new System.IO.StreamWriter(@"./CompMaze.txt",true);
+                for(int _y = 0;_y<maze_height;_y++){
+                    for(int _x = 0;_x < maze_width;_x++){
+                        sw.Write(maps[_x,_y]);
+                    }
+                    sw.Write("\n");
+                }
+            sw.Close();
         }
     }
 
