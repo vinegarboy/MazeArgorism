@@ -1,27 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Vinegarman\\Documents\\Projects\\MazeArgorism\\MazeArgorism.csproj": {}
+    "D:\\Projects\\MazeArgorism\\MazeArgorism.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vinegarman\\Documents\\Projects\\MazeArgorism\\MazeArgorism.csproj": {
+    "D:\\Projects\\MazeArgorism\\MazeArgorism.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vinegarman\\Documents\\Projects\\MazeArgorism\\MazeArgorism.csproj",
+        "projectUniqueName": "D:\\Projects\\MazeArgorism\\MazeArgorism.csproj",
         "projectName": "MazeArgorism",
-        "projectPath": "C:\\Users\\Vinegarman\\Documents\\Projects\\MazeArgorism\\MazeArgorism.csproj",
-        "packagesPath": "C:\\Users\\Vinegarman\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vinegarman\\Documents\\Projects\\MazeArgorism\\obj\\",
+        "projectPath": "D:\\Projects\\MazeArgorism\\MazeArgorism.csproj",
+        "packagesPath": "C:\\Users\\koder\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\MazeArgorism\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Vinegarman\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\koder\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -49,30 +50,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[5.0.17, 5.0.17]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[5.0.0, 5.0.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }
