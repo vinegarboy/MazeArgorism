@@ -54,6 +54,7 @@ namespace MazeArgorism
             for(int _x = 2;_x<maze_width-1;_x+=2){
                 for(int _y = 2;_y< maze_height-1;_y+=2){
                     if(_x == 1){
+                        rd = new Random();
                         switch (rd.Next(0,4)){//上下左右
                             case 0:
                                 if(maps[_x,_y-1]==1){
@@ -88,6 +89,7 @@ namespace MazeArgorism
                                 break;
                         }
                     }else{
+                        rd = new Random();
                         switch (rd.Next(0,3)){//下左右
                             case 0:
                                 if(maps[_x,_y+1]==1){
@@ -178,6 +180,7 @@ namespace MazeArgorism
             sy = rd.Next(1,maze_height);
             maps[sx,sy] = 1;
             while(!finish){
+                rd = new Random();
                 switch(rd.Next(0,4)){//上下左右
                     case 0:
                         if(sy+2 >= maze_height-1){
@@ -276,6 +279,21 @@ namespace MazeArgorism
                     }
                     sw.Write("\n");
                 }
+            sw.Close();
+        }
+
+        public void WriteCube(){
+            System.IO.StreamWriter sw = new System.IO.StreamWriter(@"./CompMaze_Cube.txt",false);
+            for(int _y = 0;_y<maze_height;_y++){
+                for(int _x = 0;_x < maze_width;_x++){
+                    if(maps[_x,_y]==0){
+                        sw.Write("□");
+                    }else{
+                        sw.Write("■");
+                    }
+                }
+                sw.Write("\n");
+            }
             sw.Close();
         }
     }
