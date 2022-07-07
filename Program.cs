@@ -73,7 +73,7 @@ namespace MazeArgorism
 
     }
 
-    class PollFall:MakeWallFunc{
+    public class PollFall : MakeWallFunc{
         public void MakeWall(){
             for(int _x = 2;_x<maze_width;_x+=2){
                 for(int _y = 2;_y< maze_height;_y+=2){
@@ -150,7 +150,7 @@ namespace MazeArgorism
         }
     }
 
-    class ExtendWall:MakeWallFunc{//ToDo 個室が作られる。
+    public class ExtendWall : MakeWallFunc{//ToDo 個室が作られる。
         int sx,sy;
         bool finish = false;
 
@@ -287,6 +287,51 @@ namespace MazeArgorism
 
     }
 
-    class DigWall:MakeWallFunc{
+    public class DigWall : MakeWallFunc{
+        public void Initialize(int width,int height){
+            maze_width = width;
+            maze_height = height;
+            if((width%2 != 1 || height%2 != 1)||(width<5||height<5)){
+                throw new Exception("The size of the maze must be odd and at least 5 blocks.");
+            }
+            maps = new int[maze_width,maze_height];
+            for(int _x =0;_x<maze_width;_x++){
+                for(int _y = 0;_y < maze_height;_y++){
+                    maps[_x,_y] = 1;
+                }
+            }
+            maps[1,1] = 0;
+        }
+
+        public void MakeWall(){
+            int sx = 1,sy = 1;
+            bool finish = false;
+            while(finish){
+                rd = new Random();
+                switch (rd.Next(0,4)){//上下左右
+                    case 0:
+                        if(sy-1 == 0){
+                            break;
+                        }
+                        
+                        break;
+                    case 1:
+                        if(sy+1 == maze_height-1){
+                            break;
+                        }
+                        break;
+                    case 2:
+                        if(sx-1 == 0){
+                            break;
+                        }
+                        break;
+                    case 3:
+                        if(sx+1==maze_width-1){
+                            break;
+                        }
+                        break;
+                }
+            }
+        }
     }
 }
