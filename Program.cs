@@ -5,7 +5,7 @@ namespace MazeArgorism
     class Program
     {
         static void Main(string[] args){
-            ExtendWall ew = new ExtendWall();
+            PollFall ew = new PollFall();
             Console.WriteLine("Set Map Height.");
             int height = int.Parse(Console.ReadLine());
             Console.WriteLine("Set Map Width.");
@@ -18,10 +18,10 @@ namespace MazeArgorism
         }
     }
 
-    class PollFall{
-        int[,] maps;
-        int maze_width,maze_height;
-        Random rd = new Random();
+    class MakeWallFunc{
+        public int[,] maps;
+        public int maze_width,maze_height;
+        public Random rd = new Random();
 
         public void Initialize(int width,int height){
             maze_width = width;
@@ -45,6 +45,35 @@ namespace MazeArgorism
             }
         }
 
+        public void WriteDate(){
+            System.IO.StreamWriter sw = new System.IO.StreamWriter(@"./CompMaze.txt",false);
+            for(int _y = 0;_y<maze_height;_y++){
+                for(int _x = 0;_x < maze_width;_x++){
+                    sw.Write(maps[_x,_y]);
+                }
+                sw.Write("\n");
+            }
+            sw.Close();
+        }
+
+        public void WriteCube(){
+            System.IO.StreamWriter sw = new System.IO.StreamWriter(@"./CompMaze_Cube.txt",false);
+            for(int _y = 0;_y<maze_height;_y++){
+                for(int _x = 0;_x < maze_width;_x++){
+                    if(maps[_x,_y]==0){
+                        sw.Write("□");
+                    }else{
+                        sw.Write("■");
+                    }
+                }
+                sw.Write("\n");
+            }
+            sw.Close();
+        }
+
+    }
+
+    class PollFall:MakeWallFunc{
         public void MakeWall(){
             for(int _x = 2;_x<maze_width;_x+=2){
                 for(int _y = 2;_y< maze_height;_y+=2){
@@ -119,60 +148,11 @@ namespace MazeArgorism
                 }
             }
         }
-        public void WriteDate(){
-            System.IO.StreamWriter sw = new System.IO.StreamWriter(@"./CompMaze.txt",false);
-            for(int _y = 0;_y<maze_height;_y++){
-                for(int _x = 0;_x < maze_width;_x++){
-                    sw.Write(maps[_x,_y]);
-                }
-                sw.Write("\n");
-            }
-            sw.Close();
-        }
-
-        public void WriteCube(){
-            System.IO.StreamWriter sw = new System.IO.StreamWriter(@"./CompMaze_Cube.txt",false);
-            for(int _y = 0;_y<maze_height;_y++){
-                for(int _x = 0;_x < maze_width;_x++){
-                    if(maps[_x,_y]==0){
-                        sw.Write("□");
-                    }else{
-                        sw.Write("■");
-                    }
-                }
-                sw.Write("\n");
-            }
-            sw.Close();
-        }
     }
 
-    class ExtendWall{//ToDo 個室が作られる。壁に到達した際にエラーが発生する。
-        int[,] maps;
-        int maze_width,maze_height,sx,sy;
-        Random rd = new Random();
+    class ExtendWall:MakeWallFunc{//ToDo 個室が作られる。
+        int sx,sy;
         bool finish = false;
-
-        public void Initialize(int width,int height){
-            maze_width = width;
-            maze_height = height;
-            if((width%2 != 1 || height%2 != 1)||(width<=4||height<=4)){
-                throw new Exception("The size of the maze must be odd and at least 5 blocks.");
-            }
-            maps = new int[maze_width,maze_height];
-            for(int _x =0;_x<maze_width;_x++){
-                for(int _y = 0;_y < maze_height;_y++){
-                    maps[_x,_y] = 0;
-                }
-            }
-            for(int i = 0;i<maze_width;i++){
-                maps[i,0] = 1;
-                maps[i,maze_height-1] = 1;
-            }
-            for(int i = 0;i<maze_height;i++){
-                maps[0,i] = 1;
-                maps[maze_width-1,i]= 1;
-            }
-        }
 
         public void MakeWall(){
             sx = 2*rd.Next(1,(int)(maze_width-2)/2);
@@ -180,7 +160,7 @@ namespace MazeArgorism
             maps[sx,sy] = 1;
             while(!finish){
                 maps[sx,sy] = 1;
-                DebugDate();
+                //DebugDate();
                 rd = new Random();
                 switch(rd.Next(0,4)){//上下左右
                     case 0:
@@ -305,30 +285,8 @@ namespace MazeArgorism
             Console.Write("\n");
         }
 
-        public void WriteDate(){
-            System.IO.StreamWriter sw = new System.IO.StreamWriter(@"./CompMaze.txt",false);
-                for(int _y = 0;_y<maze_height;_y++){
-                    for(int _x = 0;_x < maze_width;_x++){
-                        sw.Write(maps[_x,_y]);
-                    }
-                    sw.Write("\n");
-                }
-            sw.Close();
-        }
+    }
 
-        public void WriteCube(){
-            System.IO.StreamWriter sw = new System.IO.StreamWriter(@"./CompMaze_Cube.txt",false);
-            for(int _y = 0;_y<maze_height;_y++){
-                for(int _x = 0;_x < maze_width;_x++){
-                    if(maps[_x,_y]==0){
-                        sw.Write("□");
-                    }else{
-                        sw.Write("■");
-                    }
-                }
-                sw.Write("\n");
-            }
-            sw.Close();
-        }
+    class DigWall:MakeWallFunc{
     }
 }
