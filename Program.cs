@@ -303,6 +303,9 @@ namespace MazeArgorism
             maps[1,1] = 0;
         }
 
+        private bool CanGoCheck(int sx,int sy){
+            
+        }
         public void MakeWall(){
             int sx = 1,sy = 1;
             bool finish = false;
@@ -310,25 +313,44 @@ namespace MazeArgorism
                 rd = new Random();
                 switch (rd.Next(0,4)){//上下左右
                     case 0:
-                        if(sy-1 == 0){
+                        if(sy-1 == 0||sy-2 == 0){
                             break;
                         }
-                        
+                        if(maps[sx,sy-2] == 0){
+                            break;
+                        }
+                        maps[sx,sy-1] = 0;
+                        maps[sx,sy-2] = 0;
                         break;
                     case 1:
-                        if(sy+1 == maze_height-1){
+                        if(sy+1 == maze_height-1||sy+2 == maze_height-1){
                             break;
                         }
+                        if(maps[sx,sy+2] == 0){
+                            break;
+                        }
+                        maps[sx,sy+1] = 0;
+                        maps[sx,sy+2] = 0;
                         break;
                     case 2:
-                        if(sx-1 == 0){
+                        if(sx-1 == 0||sx-2 == 0){
                             break;
                         }
+                        if(maps[sx-2,sy] == 0){
+                            break;
+                        }
+                        maps[sx-1,sy] = 0;
+                        maps[sx-2,sy] = 0;
                         break;
                     case 3:
-                        if(sx+1==maze_width-1){
+                        if(sx+1==maze_width-1||sx+2 == maze_width-1){
                             break;
                         }
+                        if(maps[sx+2,sy] == 0){
+                            break;
+                        }
+                        maps[sx+1,sy] = 0;
+                        maps[sx+2,sy] = 0;
                         break;
                 }
             }
