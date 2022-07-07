@@ -18,10 +18,10 @@ namespace MazeArgorism
         }
     }
 
-    class MakeWallFunc{
-        public int[,] maps;
-        public int maze_width,maze_height;
-        public Random rd = new Random();
+    internal class MakeWallFunc{
+        internal int[,] maps;
+        internal int maze_width,maze_height;
+        internal Random rd = new Random();
 
         public void Initialize(int width,int height){
             maze_width = width;
